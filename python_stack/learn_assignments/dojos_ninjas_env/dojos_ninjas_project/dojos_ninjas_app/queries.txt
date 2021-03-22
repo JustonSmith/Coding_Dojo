@@ -1,0 +1,85 @@
+>>> from dojos_ninjas_app.models import * 
+>>> Seattle = Dojo.objects.create(
+...     name = 'Dojo Seattle',
+...     city = 'Seattle',
+...     state = 'WA',
+... )
+>>> 
+>>> Seattle.name
+'Dojo Seattle'
+>>> Dallas = Dojo.objects.create(
+...     name = 'Dojo Dallas',
+...     city = 'Dallas',
+...     state = 'TX',
+... )
+>>> Dallas.name
+'Dojo Dallas'
+>>> Los_Angeles = Dojo.objects.create(
+...     name = 'Dojo Los Angeles',
+...     city = 'Los Angeles',
+...     state = 'CA',
+... )
+>>> Los_Angeles.name
+'Dojo Los Angeles'
+>>> Dojo.objects.get(id=1).delete
+<bound method Model.delete of <Dojo: Dojo object (1)>>
+>>> Dojo.objects.get(id=2).delete
+<bound method Model.delete of <Dojo: Dojo object (2)>>
+>>> Dojo.objects.get(id=3).delete
+<bound method Model.delete of <Dojo: Dojo object (3)>>
+>>> Seattle = Dojo.objects.create(
+...     name = 'Dojo Seattle',
+...     city = 'Seattle',
+...     state = 'WA',
+... Seattle.name
+... from dojos_ninjas_app.models import *
+  File "<console>", line 6
+    from dojos_ninjas_app.models import *
+    ^
+SyntaxError: positional argument follows keyword argument
+>>> 
+>>> Seattle = Dojo.objects.create(
+... ...     name = 'Dojo Seattle',
+  File "<console>", line 2
+    ...     name = 'Dojo Seattle',
+            ^
+SyntaxError: invalid syntax
+>>> ...     city = 'Seattle',
+  File "<console>", line 1
+    ...     city = 'Seattle',
+            ^
+SyntaxError: invalid syntax
+>>> ...     state = 'WA',
+  File "<console>", line 1
+    ...     state = 'WA',
+            ^
+SyntaxError: invalid syntax
+>>> 
+>>> Seattle = Dojo.objects.create(
+...     name = 'Dojo Seattle',
+...     city = 'Seattle',
+...     state = 'WA',
+... )
+>>> Seattle.name
+'Dojo Seattle'
+>>> Seattle.id
+4
+>>> Dallas = Dojo.objects.create(
+...     name = 'Dojo Dallas',
+...     city = 'Dallas',
+...     state = 'TX',
+... )
+>>> Dallas.name
+'Dojo Dallas'
+>>> Dallas.id
+5
+>>> Chicago = Dojo.objects.create(
+...     name = 'Dojo Chicago',
+...     city = 'Chicago',
+...     state = 'IL',
+... )
+>>> Chicago.name
+'Dojo Chicago'
+>>> Chicago.id
+6
+>>> 
