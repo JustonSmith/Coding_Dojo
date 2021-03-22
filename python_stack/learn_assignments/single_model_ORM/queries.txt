@@ -1,0 +1,49 @@
+1.) Retrieve all users:
+
+    User.objects.all()
+
+
+
+
+2.) Retrieve LAST user:
+
+    User.objects.last()
+
+
+
+
+3.) Create records in users:
+
+    User.objects.create(first_name = "Judge", last_name = "Smith", email ="justonrsmith@gmail.com", age = "32")
+    User.objects.create(first_name = "Jaimeson", last_name = "Smith", email ="jaimesonrsmith@gmail.com", age = "30")
+    User.objects.create(first_name = "Dylan", last_name = "Smith", email =  age = "12")
+
+
+4.) Retrieve the first user:
+ 
+    User.objects.first()
+
+
+5.) Get the users sorted by their first name (order by first_name DESC):
+
+    User.objects.order_by("first_name").values("first_name")
+
+
+
+
+6.) Get the record of the user whose id is 3 and UPDATE the person's last_name to something else. Do this directly in the console using .get and .save:
+
+    j = User.objects.get(id=3)
+    j.last_name = "Pancakes"
+    j.save()
+
+
+7.) Delete a record of a user whose id is 4 (use something like User.objects.get(id=2).delete...):
+
+    User.object.get(id=4)
+    j.delete()
+
+(optional) Ninja:
+
+8.) Find a way to validate the data coming in to the shell.  For example, make sure that "name" fields are a minimum length, "email" is a valid email, or that "email" doesn't already exist in the db.
+    We could just use Django's built in validators, though the prefrerred method would be through our own code that we will transition from view.py into models.py..

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'container'>
+        <h2>Welcome to the Great Numbers Game:</h2>
+        <h4>I'm thinking of a number between 1 and 100...</h4>
+        <h4>Take a guess! Guesses so far: {{ session['number_of_guesses'] }}</h4>
+        {% if session['state'] != "win" %}
+            {% if session['state'] == "guess_higher" %}
+                <div class="high_low_box"> 
+                    <h2>Higher. . . </h2>
+                    <img src="python_stack/flask/great_number_game/img/wrong.jpeg" alt="Wrong">
+                </div>
+            {% endif %}
+            {% if session['state'] == "guess_lower" %}
+                <div class="high_low_box">
+                    <h2>Lower. . . </h2>
+                    <img src="python_stack/flask/great_number_game/img/nope.jpeg" alt="Nope">
+                </div>
+            {% endif %}
+            <form class = "guess_form" action="/game" method="POST">
+                <input type="text" name="user_guess" placeholder="Take your best shot. . . ">
+                <input type="submit" value="Submit">
+            </form>
+        {% endif %}
+        {% if session['state'] == "win" %}
+        <div class="win_box">
+            <h2>That. Is. Correct.</h2>
+            <img src="python_stack/flask/great_number_game/img/correct.jpg" alt="Correct">
+            <form action="/reset" method="POST">
+                <input type="submit" value="Play Again?">
+            </form>
+        </div>
+    {% endif %}
+    </div>
+</body>
+</html>
