@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<div class="card w-50">
+    <img src="{% static 'img/library.jpeg' %}" class="card-img-top" alt="library books">
+    <div class="card-body">
+        <h5 class="card-title">{{ book.title }}</h5>
+        <p class="card-text">{{ book.description }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+{% endblock main %}

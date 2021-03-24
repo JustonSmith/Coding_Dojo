@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col">
+        <form action="/catalog_books" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="book_title" class="form-label"> Book Title:</label>
+                <input type="text" name="book_title" id="book_title">
+            </div>
+            <div class="mb-3">
+                <label for="book_description" class="form-label"> Book Description:</label>
+                <textarea type="text" name="book_description" id="book_description" class="form-control"></textarea>
+            </div>
+            <div class="mb-3 d-flex justify-content-end">
+                <input type="submit" value="Add Book" class="btn btn-outline-primary">
+
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.description }}</td>
+                    <td><a href="/book/{{ book.id }}" class="btn btn-sm btn btn-outline-primary">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/authors">See Authors</a>
+    </div>
+</div>
+{% endblock main %}

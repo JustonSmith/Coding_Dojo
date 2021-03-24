@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col">
+        <form action="/catalog_authors" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="author_first_name" class="form-label"> Author First Name:</label>
+                <input type="text" name="author_first_name" id="author_first_name">
+            </div>
+            <div class="mb-3">
+                <label for="author_last_name" class="form-label"> Author Last Name:</label>
+                <input type="text" name="author_last_name" id="author_last_name">
+            </div>
+            <div class="mb-3">
+                <label for="author_notes" class="form-label"> Notes about Author:</label>
+                <textarea type="text" name="author_notes" id="author_notes" class="form-control"></textarea>
+            </div>
+            <div class="mb-3 d-flex justify-content-end">
+                <input type="submit" value="Add Author" class="btn btn-outline-primary">
+
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>First</td>
+                    <td>Last</td>
+                    <td>Notes</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in authors %}
+                <tr>
+                    <td>{{ author.id }}</td>
+                    <td>{{ author.first_name}}</td>
+                    <td>{{ author.last_name }}</td>
+                    <td>{{ author.notes}}</td>
+                    <td><a href="/author/{{ author.id }}" class="btn btn-sm btn btn-outline-primary">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/books">See Books</a>
+    </div>
+</div>
+{% endblock main %}
