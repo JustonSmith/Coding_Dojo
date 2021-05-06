@@ -1,0 +1,19 @@
+Steps:
+/my-project
+
+1) git init
+2) git add css/nav.css (staging a specific file)
+2) git add . (add all files from existing file tree, down)
+3) git commit -m working files (-m is for message and part after is the message)
+
+//updating
+// in the same folder,
+    - use git add .
+    - git commit -m "(description)"
+    - git push
+
+// deleting a file
+// in the same folder,
+    - git add .
+    - git commit -m "(description of removing file, etc.)"
+    - git push (check if files were deleted in console)
