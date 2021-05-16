@@ -1,6 +1,7 @@
 
 // import React and {useState}.
 import React, {useState} from 'react';
+import styling from './Form.Module.css'
 
 
 // state variable to store the form information as an object.{}. These names MUST match the names of the inputs in the form. 
@@ -48,15 +49,30 @@ const Form = () => {
             numberOfBelts:"",
         })
     }
+    // delete student with the splice method using spread.
+    const deleteStudent = (event, idxnum) => {
+        console.log("...deleting student.", idxnum)
+        // let students = [...allStudents]
+        // students.splice(idxnum, 1)
+        // setAllStudents(students)
+
+        // delete student using the .filter method.
+        let result = allStudents.filter((student, idx)=>{
+            return idx !== idxnum
+        })
+        setAllStudents(result)
+    }
+
 
 
     // the form should be inside the return parenthesis.
     return (
         <div className="container">
-            <span className= "text-center">
-                <div>
-                    <h1>Student List</h1>
-                    <br />
+            <div >
+                <br />
+                <h3 className= {styling.title}>Add a student below:</h3>
+                <br />
+                <div className= {styling.newstudent}>
                     <form onSubmit={submitHandler}> 
                         <div className="form-group">
                             <label htmlFor="">First Name</label>
@@ -67,7 +83,7 @@ const Form = () => {
                             <input onChange={changeHandler} name="lastName" type="text" className="form-control"value= {formInfo.lastName}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="">Profile Picture Link</label>
+                            <label htmlFor="">Upload Profile Picture</label>
                             <input onChange={changeHandler} name="profilePicture" type="text" className="form-control"value= {formInfo.profilePicture}/>
                         </div>
                         <div className="form-group">
@@ -87,22 +103,27 @@ const Form = () => {
                                 <option value="4">4</option>
                             </select>
                         </div>
-                    
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
-                        <hr />
-                        <hr />
-                        <hr />
+                    <hr />
+                    <hr />
+                    <hr />
                 </div>
-            </span>
-            <div>
+            <div/>
+        <div/>
                 {
-                    // This is where you iterate with .map to make the results of the form appear on the page. 
-                    allStudents.map(student=>{
-                        return(
-                            <span className= "text-center">
-                            <div className="card" style = {{backgroundColor: student.favoriteColor}}>
-                                <img className="" src={student.profilePicture} alt="profile pic" height="200" width="200"/>
+
+
+
+                // This is where you iterate with .map to make the results of the form appear on the page. 
+                allStudents.map((student,idx)=>{
+                    let size = ""
+                    student.numberOfBelts >2? size="big": size="small"
+
+                    return(
+                        <span key={idx} className= "text-center">
+                            <div className={`card ${styling.studentCard}`} style = {{backgroundColor: student.favoriteColor, width: student.numberOfBelts>2? "100%":"50%"}}>
+                                <img className={styling.profilePicture} src={student.profilePicture} alt="profile pic" height="200" width="200"/>
                                 <h4 className="card-title">{student.firstName} {student.lastName}</h4>
                                 <div className="card-body">
                                     <p className="card-text">
@@ -110,11 +131,12 @@ const Form = () => {
                                     </p>
                                     <p>Favorite color: {student.favoriteColor}</p>
                                     <p>Number of belts: {student.numberOfBelts}</p>
-                                    <a href="#!" className="btn btn-primary">Go somewhere</a>
+                                    <p>Index number: {idx} </p>
+                                    <button onClick={event => deleteStudent(event, idx)}>Remove</button>
                             </div>
                             </div>
                         </span>)
-                    })
+                    })  
                 }
             </div>
         </div>

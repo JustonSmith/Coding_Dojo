@@ -1,0 +1,42 @@
+.newstudent {
+    /* background-color: grey;
+    color: yellow; */
+    border: 5px solid black;
+    box-shadow: 10px 15px gray;
+    text-align: center;
+    padding:10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.title {
+    color:rgb(18, 110, 216);
+    text-align: center;
+    text-decoration: underline 2px;
+}
+/* center profile picture */
+.profilePicture{
+    margin:auto;
+    width:50%;
+    border: 2px white;
+    padding: 10px;
+}
+.studentCard{
+    width: 50%;
+    height: 500px;
+    background-color: teal;
+    animation: slide-in 7s;
+    border: 2px solid black;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+@keyframes slide-in {
+    from {
+        transform: translateX(1600px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}

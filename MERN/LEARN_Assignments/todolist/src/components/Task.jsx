@@ -3,8 +3,8 @@ import React from 'react';
 
 const Task = (props) => {
     const {task, setList} = props;
-    const onClick = () => {
-        setList()
+    // const onClick = () => {
+    //     setList()
     
     return (
         <div className="container bg-secondary">
