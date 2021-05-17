@@ -12,7 +12,7 @@ const FetchPokemonButton = (props) => {
         useEffect(() => {
             if (didMount.current) func();
             else didMount.current = true;
-        }, deps);
+        }, deps, func);
     }
 
     const [clicked, setClicked] = useState(false)

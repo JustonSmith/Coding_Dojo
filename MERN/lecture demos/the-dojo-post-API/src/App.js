@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import News from "./components/News"
 function App() {
   return (
     <div className="App">
-      
+      <News></News>
     </div>
   );
 }
