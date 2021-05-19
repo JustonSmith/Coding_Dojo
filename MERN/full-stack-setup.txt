@@ -1,0 +1,23 @@
+MERN setup guide: 
+    1. Create a folder for your project
+    2. Cd into folder
+    3. Create a server.js file
+    4. npm init -y
+    5. npm install mongoose express cors
+    6. Set up server.js
+    7. Create server folder
+    8. Go into server folder and make 4 directories: config, routes, controllers, models
+    9. Go back out of the server folder in terminal
+    10. Create a <nameofyourprojecthere>.config.js inside the config folder
+    11. Set up the config.js file with a db name
+    12. Create a <nameofyourmodelorprojecthere>.model.js inside models folder and set it up
+    13. Create a <nameofyourprojecthere>.controller.js inside the controllers folder and set it up
+    14. Create a <nameofyourprojecthere>.routes.js inside the routes folder and set it up
+        a.  (MAKE SURE YOUR METHODS IN THE APP.GET/POST/PUT/DELETE ROUTES ARE MATCHING WITH THE NAME OF THE FUNCTIONS IN THE CONTROLLER)
+    15. Run server and test on postman that all routes work
+    16. SET UP FRONT END ONLY AFTER YOU CONFIRMED ALL YOUR BACKEND ROUTES WORK
+    17. Create a react app in the project folder (siblings to the server.js and server folder) using npx create-react-app client
+    18. Open another terminal, have it so one terminal is on the project folder (backend) where the server.js file is and the other terminal is in the client folder (front end)
+    19. In the front end terminal (client) , install these packages using this command: npm install axios @reach/router
+    20. Run the back end terminal using this command: nodemon server.js
+Run the front end terminal using this command: npm start

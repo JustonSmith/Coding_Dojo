@@ -3,6 +3,7 @@ import './App.css';
 import {Router, Link} from '@reach/router';
 import Register from './components/Register';
 import SignIn from './components/SignIn'
+import PokemonDetail from './components/PokemonDetail'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Register path="/signup"></Register>
         <SignIn path="/signin"></SignIn>
         <img className="container" path="/" src= "http://assets1.ignimgs.com/2016/05/12/tk2g5hdyx8h6xkq2helcpng-6da69e.png" alt=""></img>
+        <PokemonDetail path="pokemon/:pokemonNum"/>
       </Router>
 
     </div>
