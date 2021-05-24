@@ -9,8 +9,8 @@ import PokemonDetail from './components/PokemonDetail'
 function App() {
   return (
     <div className="App">
-      <img src="https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png" alt=""></img>
-      {/* <a href="/signin">Sign In</a> &nbsp;|| &nbsp; 
+      {/* {/* <img src="https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png" alt=""></img> */}
+      {/* <a href="/signin">Sign In</a> &nbsp;|| &nbsp;  */}
       <a href="/">Home</a> &nbsp;|| &nbsp;
       <a href="/signup">Sign Up</a> */}
       <br />

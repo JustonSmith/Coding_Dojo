@@ -25,7 +25,7 @@ const News = () => {
         // })
         // .catch(err => console.log("error", err))
 
-        axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=aef11bf23736484f9883f9f541ffdefe&category=technology")
+        axios.get("https://newsapi.org/v2/top-headlines?country=il&apiKey=aef11bf23736484f9883f9f541ffdefe&category=health")
         .then(res => {
             console.log (res)
             setAllArticles(res.data.articles)
@@ -39,9 +39,9 @@ const News = () => {
     return (
         <div>
             <br />
-            <button onClick= {getArticles} className="btn btn-primary">Click here to get today's tech news</button>
+            <button onClick= {getArticles} className="btn btn-primary">Click here to get today's news</button>
             <br />
-            <h1>Here's the tech news for today:</h1>
+            <h1> Mama's news for today:</h1>
             {
                 allArticles.map( (article, id) =>  {
                     return <div key={id} className="card">

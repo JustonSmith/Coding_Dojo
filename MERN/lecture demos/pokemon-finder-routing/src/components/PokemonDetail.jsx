@@ -21,10 +21,10 @@ const PokemonDetail = (props) => {
     
     return (
         <div>
-            <h1>You chose {pokemonInfo.name}!</h1>
+            <h1> {pokemonInfo.name}!</h1>
             {pokemonInfo.sprites?
             <>
-                <img height="250px" src={pokemonInfo.sprites.front_shiny} alt=""/>
+                <img height="600px" width="4100px" src={pokemonInfo.sprites.front_shiny} alt=""/>
                 <h3>Abilities:{}</h3>
             </>
             
