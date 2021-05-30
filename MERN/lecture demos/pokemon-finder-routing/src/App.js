@@ -12,7 +12,7 @@ function App() {
       {/* {/* <img src="https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png" alt=""></img> */}
       {/* <a href="/signin">Sign In</a> &nbsp;|| &nbsp;  */}
       <a href="/">Home</a> &nbsp;|| &nbsp;
-      <a href="/signup">Sign Up</a> */}
+      <a href="/signup">Sign Up</a>
       <br />
       <Link to="/signin">Sign In</Link> &nbsp;|| &nbsp;
       <Link to="/">Home</Link> &nbsp;|| &nbsp;
