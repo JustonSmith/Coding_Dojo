@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Login/Registration</title>
+</head>
+<body>
+    <h1>WhatchUthink?</h1>
+    <hr>
+    <div class="container">
+        <h2>Register Account</h2>
+        <form action="/register" method="POST">
+            <label for="form_first_name" class="form-label">First name:</label>
+            <input type="text" id="form_first_name" name="form_first_name">
+            <label for="form_last_name" class="form-label">Last Name:</label>
+            <input type="text" id="form_last_name" name="form_last_name">
+            <label for="form_email" class="form-label">Email:</label>
+            <input type="text" id="form_email" name="form_email">
+            <label for="form_password" class="form-label">Password:</label>
+            <input type="password" id="form_password" name="form_password">
+            <label for="form_confirm" class="form-label">Confirm Password:</label>
+            <input type="password" id="form_confirm" name="form_confirm">
+            <button class="btn btn-outline-primary btn-sm" type="submit">register</button>
+        </form>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login"  method="POST">
+            <label for="form_email">Email:</label>
+            <input type="text" id="form_email" name="form_email">
+            <label for="form_password">Password:</label>
+            <input type="password" id="form_password" name="form_password">
+            <button class="btn btn-outline-primary btn-sm">login</button>
+        </form>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+{% extends 'base.html'}
+
+{% block breadcrumb %}
+{{ block.super }} - HOME
+{% endblock breadcrumb %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Venue</th>
+            <th>Genre</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for openmic in openmics %}
+        <tr>
+            <td>{{ openmic.venue }}</td>
+            <td>{{ openmic.genre }}</td>
+            <td>{{ openmic.date }}</td>
+            <td>
+                <a href="/openmics/{{ openmic.id" }}>View</a>
+                {% if openmic.creator.id == request.session.user_id}
+                <a href="/openmics/{{ openmic.id }}/edit">Edit</a>
+                {% endif %}
+                <a href="/openmics/{{ openmic.id }}/likes">Like</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="4">
+                <a href="/openmics.create" class="button is-outlined is-dark m-2">ADD AN OPEN MIC</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock main %}

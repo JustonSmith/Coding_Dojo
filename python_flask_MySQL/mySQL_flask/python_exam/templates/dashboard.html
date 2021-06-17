@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>WhatChuThink</title>
+</head>
+<body>
+    <br>
+    <h1 style="display: inline-flex;">T's n P's</h1>
+    <hr>
+    <h2>Welcome, {{session['username']}}</h2>
+    <p>WhatChuThinkin'?</p>
+    <form action="/posts" method="POST">
+        <input type="hidden" name="users_id">
+        <textarea name="magazines" id="" cols="20" style="height: 50px;"></textarea>
+        <br>
+        <button type="submit" class="btn btn-outline-primary">post</button>
+    </form>
+    <hr>
+    <!-- FOR loop. This is what tells the SQL DB what to do in HTML. MAKE SURE NAMES MATCH IN CORRECT PLACES. Square bracket names must match table columns in SQL DB, and <_> in app route () must match form action. THIS IS WHY YOUR STUFF WONT RUN, FOOL. Be careful and concious of what you call things and make lots of notes of where you need, when you need. "Small goals into big goals, kiddo. Slow is smooth. Smooth is fast.""  -->
+    
+    {% for thoughts in user_thoughts %} 
+        <h3> <a href="user.html">{{ thoughts['first_name'] }}</a>'s thoughts:</h3>
+        <br>
+        <p>{{ thoughts['content'] }}</p>
+        <form action="/posts/{{thoughts['id']}}/delete" method="POST">
+            <button type="submit"  class="btn btn-outline-danger">Delete</button>
+        </form>
+        <br>
+        <form action="/posts/{{thoughts['id']}}/like" method="POST">
+            <button type="submit" class="btn btn-outline-warning btn-sm">like</button>
+        </form>
+        <form action="/posts/{{thoughts['id']}}/dislike" method="POST">
+            <button type="submit" class="btn btn-outline-warning btn-sm">dislike</button>
+        </form>
+        <br>
+        {% for likes in likes %}
+            {% if thoughts['id'] == likes['thoughts_id'] %}
+                <h5>{{ likes['total_likes']}} people like this </h5>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

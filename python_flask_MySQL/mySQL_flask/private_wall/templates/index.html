@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Login/Registration</title>
+</head>
+<body>
+    <div class="mx-auto" style="width: 1275px">
+    <hr style="height:30px">
+    </div>
+    <div class="container px-4" style="text-align: center;">
+        <div class="p-3 mb-2 bg-dark text-primary" style="border-radius: 50px;">
+            <div class="mx-auto" style="width: 250px;">
+                <h1>sludgemail</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container px-4">
+    <hr style="height:30px;">
+    </div>
+    <div class="container px-4" style="text-align: center;">
+        <div class="p-3 mb-2 bg-dark text-primary" style="border-radius: 50px;">
+            <div class="container px-4" style="text-align: center;">
+                <h2>register account</h2>
+                <hr class="container px-4" style="height: 10px;">
+            </div>
+                <div class="mx-auto" style="width: 585px;">
+                    <form action="/register" class="form-label" method="POST" style="text-align: center;">
+                        <div class="col-md-4" style="width: 585px;">
+                            <label for="form_first_name" class="form-label">First name:</label>
+                            <input type="text" class="form-control" id="form_first_name" name="form_first_name">
+                        </div>
+                        <div class="col-md-4" style="width: 585px;">
+                            <label for="form_last_name" class="form-label">Last Name:</label>
+                            <input type="text" class="form-control" id="form_last_name" name="form_last_name">
+                        </div>
+                        <div class="col-md-4" style="width: 585px;">
+                            <label for="form_email" class="form-label">Email:</label>
+                            <input type="text" class="form-control" id="form_email" name="form_email">
+                        </div>
+                        <div class="col-md-4" style="width:585px;">
+                            <label for="form_password" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="form_password" name="form_password">
+                        </div>
+                        <div class="col-md-4" style="width: 585px;">
+                            <label for="form_confirm" class="form-label">Confirm Password:</label>
+                            <input type="password" class="form-control" id="form_confirm" name="form_confirm">
+                        </div>
+                        <br>
+                        <div class="mx-auto" style="text-align: center;">
+                            <button class="btn btn-outline-warning btn-sm" type="submit">register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="mx-auto" style="width: 1275px">
+    <hr style="height:30px">
+    </div>
+    <div class="container px-4" style="text-align: center;">
+        <div class="p-3 mb-2 bg-dark text-primary" style="border-radius: 50px;">
+            <div class="mx-auto" style="width: 95px;">
+                <div style="height: 5px"></div>
+                <h2 style="width: 90px;">login</h2>
+            </div>
+            <hr class="container px-4" style="height: 10px;">
+            <div class="mx-auto" style="width:285px;">
+                <form action="/login" class="form-label" method="POST" style="text-align: center;">
+                    <div class="col-md-4" style="width:285px;">  
+                        <label for="form_email" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="form_email" name="form_email">
+                    </div>
+                    <div class="col-md-4" style="width: 285px;">
+                        <label for="form_password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="form_password" name="form_password">
+                    </div>
+                    <br>
+                    <div class="mx-auto" style="text-align: center;">
+                        <button class="btn btn-outline-warning btn-sm">login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <div class="mx-auto" style="width:1275px;">
+    <hr style="height:30px">
+    </div>
+</body>
+</html>

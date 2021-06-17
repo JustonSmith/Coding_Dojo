@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>WhatchUthink</title>
+</head>
+<body>
+    <hr>
+    <h2>Welcome, {{user['form_first_name']}}.</h2>
+    <p>whatchuthinkin'?</p>
+    <form action="/messages" method="POST">
+        <input type="hidden" name="users_id">
+        <textarea name="content" id="" cols="20" style="height: 50px;"></textarea>
+        <button type="submit" class="btn btn-outline-primary btn-sm">post</button>
+    </form>
+    <hr>
+    <h3>{{ user['form_first_name'] }}'s thoughts:</h3>
+    <hr>
+    {% for thought in user_thoughts %}
+        <p>{{['poster_id']}} thinks:</p>
+        <p>{{ thoughts['content'] }}</p>
+        <form action="/messages/user_post>/delete" method="POST">
+            <input type="hidden" name="thoughts_id" value="{{ thoughts['id'] }}">
+            <button type="submit"  class="btn btn-outline-danger btn-sm">Delete</button>
+        </form>
+        <br>
+    {% endfor %}
+    <hr>
+    {% for user in other_users %}
+        <p>{{ user['form_first_name']'s thoughts: }}</p>
+        <p>{{ thoughts['content'] }}</p>
+        <form action="/messages" method="POST">
+            <input type="hidden" name="other_user_id" value="{{ thoughts['id'] }} ">
+        </form>
+        <br>
+    {% endfor %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

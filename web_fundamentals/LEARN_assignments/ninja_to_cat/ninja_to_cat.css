@@ -1,0 +1,21 @@
+body {
+	text-align: center;
+	width: 970px;
+	margin: 0 auto;
+}
+
+
+img {
+	display: block;
+	width: 350px;
+	height: 150px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+	margin-left: 350px;
+	margin-top: 5px;
+}
+
+row {
+	text-align: center;
+}

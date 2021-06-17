@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form test, Sucka</title>
+</head>
+<body>
+    <h1>Index Page</h1>
+    <h3>Create a User</h3>
+        <form action = "'/users'" method = "post">
+        <label for="name">Name</label>
+        Name: <input type = 'text' name = 'name'>
+        Email: <input type = 'text' name = 'email'>
+        <input type = 'submit' Value = 'create user'>
+        <button>Submit</button>
+    </form>
+
+    <h3>Names submitted</h3>
+    {{all name}}
+    <ul>
+        {% for name in all_names %}
+            <li> {{name}}</li>
+        {% endfor %}
+    </ul>
+
+    
+</body>
+</html>

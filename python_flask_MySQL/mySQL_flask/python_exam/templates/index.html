@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Login/Registration</title>
+</head>
+<body>
+    <hr style="height: 10px;">
+    <h1 style="text-align: center;">WhatChuThink?</h1>
+    <div class="container">
+        <hr style="height: 10px;">
+
+        <!-- registration HTML. Make sure input name matches label 'for', and DB. Make sure everything is in a form.  -->
+        
+            <h2>Register Account:</h2> 
+            <form action="/register" method="POST">
+                <label for="first_name" class="form-label">First name:</label>
+                <input type="text" id="form_first_name" name="first_name" style="margin-left: 77px;">
+                <br>
+                <label for="last_name" class="form-label">Last Name:</label>
+                <input type="text" id="form_last_name" name="last_name" style="margin-left: 75px;">
+                <br>
+                <label for="email" class="form-label" >Email:</label>
+                <input type="text" id="form_email" name="email" style="margin-left: 114px;">
+                <br>
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="form_password" name="password" style="margin-left: 83px;">
+                <br>
+                <label for="form_confirm" class="form-label">Confirm Password:</label>
+                <input type="password" id="form_confirm" name="confirm" style="margin-left: 20px;">
+                <br>
+                <button class="btn btn-outline-primary btn-sm" type="submit">register</button>
+            </form>
+        <hr style="height: 10px;">
+
+        <!-- Login HTML. Make sure input name matches label 'for' and DB. Make sure everything is in a form. -->
+
+        <h2>Login:</h2>
+        <form action="/login"  method="POST">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" id="form_email" name="email" style="margin-left: 114px;">
+            <br>
+            <label for="password" class="form_label">Password:</label>
+            <input type="password" id="password" name="password" style="margin-left: 83px;">
+            <br>
+            <button class="btn btn-outline-primary btn-sm" type="submit">login</button>
+        </form>
+    </div>
+    <br>
+
+    <!-- FOR loop for validation. End FOR. End IF. End WITH. Indentation. -->
+
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <hr style="height: 10px;">
+</body>
+</html>

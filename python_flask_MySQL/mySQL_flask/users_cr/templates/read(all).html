@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USERS</title>
+</head>
+<body>
+
+    <h1>Users</h1>
+{% for one_user in all_users %}
+    <p>First Name: {{one_user["first_name"]}}</p>
+    <p>Last Name: {{one_user["last_name"]}}</p>
+    <p>Email: {{one_user["email"]}}</p>
+    <hr>
+{% endfor %}
+    <a href="/users">Add User</a>
+    <br>
+    <table></table>
+
+    <script>
+        function add_user() {
+            if ($("#users tbody").length == 0){
+                $("#users tbody").append("<tbody></tbody")
+            }
+            $("#users tbody").append("<tr>" + 
+                "<td> first_name </td>" +
+                "<td> last_name </td>" +
+                "<td> email </td>" +
+                "</tr>"
+                )
+            }
+    </script>
+
+</body>
+</html>

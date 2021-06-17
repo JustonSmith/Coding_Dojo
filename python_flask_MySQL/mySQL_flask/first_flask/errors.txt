@@ -1,0 +1,7 @@
+password = '1Mothershipusa619!',
+***Error: Incorrect password. 
+
+def connectToMysQL(db):
+***InputError: not defined. Function is typed incorrectly. Needs Capital 'S'.
+
+Bing Bong. Lol.

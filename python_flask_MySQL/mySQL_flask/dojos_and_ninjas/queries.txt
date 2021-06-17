@@ -1,0 +1,32 @@
+use dojos_ninjas; 
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Dallas', now(), now()); 
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Seattle', now(), now());
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Arlington', now(), now());
+SELECT * FROM dojo;
+DELETE FROM `dojos_ninjas`.`dojo` WHERE (`id` = '1');
+DELETE FROM `dojos_ninjas`.`dojo` WHERE (`id` = '2');
+DELETE FROM `dojos_ninjas`.`dojo` WHERE (`id` = '3');
+DELETE FROM `dojos_ninjas`.`dojo` WHERE (`id` = '4');
+DELETE FROM `dojos_ninjas`.`dojo` WHERE (`id` = '5');
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Dallas', now(), now()); 
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Seattle', now(), now());
+INSERT INTO dojo (location, created_at, updated_at) VALUES ('Arlington', now(), now());
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Juston', 'Smith', 32, now(), now(),1);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Messiah', 'Kwak', 29, now(), now(),1);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Ernest', 'Mummey', 28, now(), now(),1);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Aspen', 'Smith', 25, now(), now(),2);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Hailey', 'Holdcraft', 25, now(), now(),2);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Yadiel', 'Diaz', 30, now(), now(),2);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Steven', 'Peterson', 32, now(), now(),3);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Christina', 'George', 25, now(), now(),3);
+INSERT INTO ninja (first_name, last_name, age, created_at, updated_at, dojo_id) VALUES ('Cody', 'Mangels', 30, now(), now(),3);
+SELECT * FROM ninja;
+SELECT * FROM ninja WHERE dojo_id = 1;
+SELECT * FROM ninja WHERE dojo_id = 2;
+SELECT * FROM ninja WHERE dojo_id = 3;
+SELECT dojo_id FROM ninja where id = 3;
+SELECT * FROM dojo 
+JOIN ninja ON ninja.id = dojo.id;
+
+
+

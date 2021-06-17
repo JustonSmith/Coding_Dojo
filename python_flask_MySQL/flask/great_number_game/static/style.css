@@ -1,0 +1,34 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#container{
+    width: 600px;
+    margin: 0px auto;
+    text-align: center;
+}
+.guess_form{
+    margin: 20px 0px;
+}
+.red-box{
+    margin:20px 0px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.green_box{
+    margin:20px 0px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}

@@ -1,0 +1,105 @@
+<!-- There are a ton of tags in HTML 5. Here are some additional tags that you might find helpful during your dev career!
+
+DOCTYPE
+We have been using many aspects of HTML5 all along. For example, the doctype for HTML4.01 looks like this: -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- This is not very human-readable. It is simply saying, "this document is written in HTML 4.01." The doctype for HTML5 looks like this: -->
+
+<!DOCTYPE html>
+<!-- This states, "this document is written in HTML5". Notice that in this new declaration, we are not specifying the version of HTML. This is because HTML5 supports existing content (the doctype can be applied to an existing HTML 4.01 document). Any future versions of HTML will also support the existing content in HTML5 so this way of declaring your doctype is the way to go. -->
+
+<!-- Browser Support: All versions of Chrome, IE, Firefox, Safari, Opera -->
+
+<!-- Character Encoding
+In HTML 4.01, you specified the character encoding of your HTML document with this meta declaration: -->
+
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
+<!-- In HTML5: -->
+
+<meta charset="utf-8">
+<!-- Browser Support: All versions of Chrome, IE, Firefox, Safari, Opera
+
+Script and Link Tags -->
+
+<!-- The <script> tag and the <link> tag is another place where HTML5 allows us to type less. Before, you needed to specify a type value of "text/javascript" to script elements or a type value of "text/css" if you were using link elements to reference your stylesheets. -->
+
+<script type="text/javascript" src="main.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-- With HTML5 you can write:  -->
+
+<script src="main.js"></script>
+<link rel="stylesheet" href="style.css">
+<!-- Browser Support: All versions of Chrome, IE, Firefox, Safari, Opera -->
+
+
+
+<!-- Rich Media
+We often have to use a plug-in technology such as Flash or Silverlight to publish audio or video on the web. These technologies "plug-in" the holes of the web. However, these technologies are not open: they are not created by the community but are under the control of individual companies. HTML5 to the rescue. It is in direct competition with proprietary technologies like Flash and Silverlight but instead of requiring a plug-in, the rich media elements in HTML5 are native to the browser.
+
+
+
+Canvas
+Once an image has been served up to a browser, its contents cannot be updated. You can create animated gifs or update the image's styles, but its contents cannot be updated. The canvas element can now be used for creating dynamic images. -->
+
+<canvas id="work_of_art" width="400" height="200">
+    <p>Your browser does not support canvas</p>
+</canvas>
+<!-- You can learn how to interact with the canvas here. Canvas offers a lot of the same tools that you find in a graphics program like Illustrator: strokes, fills, gradients, shadows, shapes, and bezier curves. The difference is that you need to specify everything using JavaScript instead of using a GUI.
+
+Browser Support: Chrome 4.0+, IE 9.0+, FireFox 2.0+, Safari 9.0+, Opera 9.0+
+
+
+
+Audio
+Embedding an audio file in an HTML5 document is simple: -->
+
+<audio src="desperado.mp3">
+</audio>
+<!-- You might annoy your visitors this way, but you can even set an auto-play attribute... -->
+
+<audio src="desperado.mp3" autoplay>
+</audio>
+<!-- And you can annoy them a little more with loop... -->
+
+<audio src="desperado.mp3" autoplay loop>
+</audio>
+<!-- Or you can give them the control by prompting the browser to provide native controls for playing and pausing the audio as well as adjusting the volume. -->
+
+<audio src="desperado.mp3" controls>
+</audio>
+<!-- The audio element seems too good to be true. There's a catch. The problem with the audio element isn't in the specification...the problem lies with audio formats. MP3 format is widely used everywhere, but it is not an open format. What this means is that browsers can't decode MP3 files without paying a fee. This fee is not a big deal for big companies such as Apple, but it is a big deal for smaller companies such as Mozilla. This is why Safari will play back MP3 files while Firefox will not.
+
+The Vorbis codec, usually delivered as a  .ogg file, is an open format. Firefox supports Ogg Vorbis, but Safari doesn't. Chrome supports both formats. Fortunately, there is a way to use the audio element to support all browsers that support the audio element. -->
+
+<audio controls>
+    <source src="desperado.ogg">
+    <source src="desperado.mp3">
+</audio>
+<!-- A browser that can play back Ogg Vorbis files will look no further than the first source element. A browser that can play MP3 files will skip over the first source element and play the file in the second source element. You can learn more about the audio tag here.
+
+Browser Support: Chrome 4.0+, IE 9.0+, FireFox 3.5+, Safari 4.0+, Opera 10.5+
+
+
+
+Video
+The Flash plugin is one of the most popular ways of displaying video content on the Web. HTML5 might change that. The video element works just like the audio element. The main difference is that you probably want to provide dimensions for your video element. -->
+
+<video src="caddyshack.mp4" width="400" height="800" controls>
+</video>
+<!-- Once again there is a battle amongst the video formats. Some big players are MP4 (which is patent-encumbered) and Theora Video which isn't. Safari does not support .ogv files while FireFox does not support .mp4 files. Chrome supports both. Fortunately, you can use the video element to support all browsers that support the video element. -->
+
+<video width="400" height="200" poster="picture.jpg" controls>
+    <source src="caddyshack.ogv">
+    <source src="movie.mp4">
+</video>
+<!-- One of the limitations of relying on a plug-in for rich media is that plug-in content is sandboxed away from the rest of the web page. Having native rich media elements in HTML means that we can have our media content play nicely with other browser technologies such as CSS and JavaScript. You can learn more about the video element here.
+
+Browser Support: Chrome 4.0+, IE 9.0+, FireFox 3.5+, Safari 4.0+, Opera 10.5+
+
+
+
+Semantic Elements
+HTML provides us elements that tell us exactly what it is we are working with such as paragraphs, lists, and headlines. We also have elements that are more generic such as <div> and <span>. In addition to the basic headline, paragraph, and list tags we can also use more descriptive tags such as <header>, <footer>, and <nav>. You can learn more about the semantic elements here. -->
+
+

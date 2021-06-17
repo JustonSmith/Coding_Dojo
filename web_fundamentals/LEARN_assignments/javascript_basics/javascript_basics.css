@@ -1,0 +1,51 @@
+*{
+    margin: 10px;
+    padding: 3px;
+}
+
+#wrapper{
+    background-color: midnightblue;
+    width: 1000px;
+    border-radius: 10px;
+
+}
+
+#header{
+    background-color: red;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#footer{
+    background-color: dimgray;
+    border-radius: 10px;
+}
+
+#main-content{
+    background-color: royalblue;
+    display: inline-block;
+    width: 700px;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+#navigation{
+    background-color: rgb(12, 170, 136);
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.greytext{
+    color: hsl(210, 49%, 62%);
+}
+
+
+.turqtext{
+    color: hsl(165, 41%, 33%);
+}
+
+.highlight{
+    color: #aca904;
+}

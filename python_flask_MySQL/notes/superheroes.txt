@@ -1,0 +1,25 @@
+CLASS: Heros_VS_Villans
+
+    ATTRIBUTES: ()
+    - Name
+    - Strength
+    - Weakness
+    - Enemies
+    - Health Level
+    - Location
+
+    METHODS: (functions)
+    - Swing 
+    - Fly
+    - Run
+    - Jump
+    - Attack
+        - other_user.health - = 10
+
+USERS:
+Spiderman
+Green_Goblin
+
+Spiderman.swing(6).attack(Green_Goblin)
+Green_Goblin.fly(10).jump(5).attack(Spiderman)
+

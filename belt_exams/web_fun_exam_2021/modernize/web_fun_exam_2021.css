@@ -1,0 +1,207 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#container{
+    margin: 0;
+    width: 980px;
+    border-radius: 10px;
+    background-color: rgb(27, 27, 27);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+}
+
+#header_logo{
+    width: 250px;
+}
+
+#contact_number{
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 15px;
+    color: white;
+}
+
+#contact_number a{
+    color: white;
+    text-decoration: none;
+}
+#contact_number h2 :hover{
+    color: orange;
+}
+
+nav{
+    display: inline;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 18pt;
+    
+}
+
+nav ul{
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 15px;
+    overflow: hidden;
+    background: linear-gradient(80, 79, 79);
+    background-color: rgb(80, 79, 79);
+    border-top: slategrey;
+    font-size: 12pt;
+}
+
+nav li{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid #bbb;
+    font-size: 12pt;
+}
+
+nav li :hover{
+    color: orange;
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
+#hero_image{
+    width: 980px;
+    margin-right: auto;
+    margin-left: 2px;
+    border-radius: 3px;
+}
+
+.main_contents_boxes{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px slategrey;
+}
+
+.main_contents_boxes h3{
+    color: orange;
+    text-align: center;
+}
+
+.main_contents_boxes p{
+    text-align: center;
+    color: white;
+}
+
+.main_contents_boxes.list_img{
+    justify-content: left;
+}
+
+#main_box_four{
+    margin: 5px;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+}
+
+#purchase_bar{
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    box-shadow: 3px 3px 3px slategrey;
+    margin: 10px;
+    padding: 20px;
+}
+
+#purchase_bar h2{
+    color: orange;
+    font-size: 14pt;
+}
+
+#purchase_bar p{
+    color: white;
+    font-size: 10pt;
+    word-wrap: normal;
+    margin-right: 300px;
+}
+
+#buy_now_button{
+    background-color: orange;
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px white;
+    margin-left: 800px;
+}
+
+#buy_now_button a{
+    color: white;
+    margin-top: 500px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    text-align: right;
+    padding: 20px;
+}
+
+#portfolio{
+    margin-left: 6px;
+    padding: 5px;
+}
+
+#projects_link a{
+    margin-left: 775px;
+}
+
+.footer_boxes{
+    display: inline-flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+footer.footer_boxes{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h3{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+footer h4{
+    color:orange;
+    padding: 5px;
+}
+
+footer a{
+    text-align: right;
+    justify-content: space-between;
+    color: orange;
+}
+
+footer p{
+    color: white;
+    text-align: left;
+
+}
+
+#footer_box_two{
+    padding-left: 20px;
+
+}
+#footer_box_one{
+    margin-left: 15px;
+}

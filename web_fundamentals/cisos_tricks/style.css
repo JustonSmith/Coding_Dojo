@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+#container{
+    width: 1000px;
+    margin: 0 auto;
+    border-color: slateblue 1px solid;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    min-height: 50px;
+    align-items: center;
+    padding: 10px;
+    background-color: cornflowerblue;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav li{
+    border-right: seashell 2px solid;
+}
