@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+
+<body style="padding: 10px 10px 10px 20px">
+    <div style="padding: 20px 20px 10px 90%">
+        <button style="color:black" text-align="right" type="submit" class="btn btn-outline-success btn-primary btn-lg">
+            <a href='/logout'> Logout </a>
+        </button>
+    </div>
+
+    <h1 style="padding: 10px 0 20px 140px; color:black; text-transform:uppercase"> Hello
+        <strong>{{current_user.first_name}}</strong></h1>
+    <div class="container-fluid row">
+        <!--Opening parent div (Container-fluid row)-->
+        <div class="col-1"></div>
+        <div class="col-5">
+            <!--Opening child1 div (6 rows)-->
+            <h2 style="padding: 30px 0 30px 0"> Gimme Some NWA Quotes:</h2>
+            <br>
+            {% for quote in quotes %}
+            {{ quote.quoted_by }} : {{ quote.quote_text }}
+            <p> Posted by: <a href="/users/{{quote.posted_by.id}}"> {{quote.posted_by}} </a> </p>
+
+            <button style="color:black" align="right" type="submit" class="btn btn-outline-success btn-primary btn-lg">
+                <a href="/quote/{{quote.id}}"> Add to My List </a>
+            </button><br><br>
+            {% endfor %}
+            <br><br>
+            <br><br>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5">
+            <!--Opening child2 div (6 rows)-->
+            <h2 style="padding: 30px 0 30px 0"> Quotes I like:</h2>
+            {% for quote in user_likes %}
+            {{ quote.quoted_by }} : {{ quote.quote_text }}
+            <p> Posted by: <a href="/users/{{quote.author.id}}"> {{quote.author}} </a> </p>
+            <button style="color:black" align="right" type="submit" class="btn btn-outline-success btn-primary btn-lg">
+                <a href="/remove/{{quote.id}}"> Add to likes </a> </button>
+            <br><br>
+            {% endfor %}
+        </div>
+        <!--Closing child1 div (6 rows)-->
+        <div>
+            <!--Closing parent div (Container-fluid row)-->
+
+
+            <h2 style="padding: 10px 0 20px 60px"> You can post your Quote here:</h2>
+            <div style="padding: 30px 0 30px 50px">
+                <form action='/quote' method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quoted_by"> Quoted By </label>
+                        <textarea name='quote_author' rows='1' cols='50' class="form-control" id="quoted_by"
+                            placeholder='Quoted by..'> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message"> Message </label>
+                        <textarea name='quote' rows='3' cols='50' class="form-control" id="quoted_by"
+                            placeholder='Your quote here..'> </textarea><br>
+                    </div>
+                    <div style="color:red; padding-bottom: 10px">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if message.extra_tags == "quote_post" %}
+                        {{ message }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <button style="color:black" align="right" type="submit"
+                        class="btn btn-outline-success btn-primary btn-lg"> Submit </button>
+                </form>
+            </div>
+
+
+
+
+
+</body>
+
+</html>
