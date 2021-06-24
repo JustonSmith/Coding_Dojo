@@ -1,0 +1,82 @@
+{% extends 'base.html'}
+
+{% block breadcrumb %}
+{{ block.super }} - HOME
+{% endblock breadcrumb %}
+
+{% block main %}
+<div class="columns mt-3">
+    <div class="column is-half -is-offset-one-quarter">
+        <div class="box">
+            <h1 class="title is-1">ADD AN OPEN MIC</h1>
+            <form action="/openmics/{{ openmic.id }}/edit" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="venue" class="label">Venue:</label>
+                    <div class="control">
+                    <input type="text" name="venue" id="venue" class="input" value="{{ openmic.venue }} ">
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.extra_tags == 'venue' %}
+                        <p class="has-text-danger-dark is-size-7">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="genre" class="label">Genre:</label>
+                    <div class="control">
+                    <input type="text" name="genre" id="genre" class="input" value="{{ openmic.genre }}">
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.extra_tags == 'genre' %}
+                        <p class="has-text-danger-dark is-size-7">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="date" class="label">Date:</label>
+                    <div class="control">
+                    <input type="date" name="date" id="date" class="input" value="{{ openmic.date }}">
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.extra_tags == 'date' %}
+                        <p class="has-text-danger-dark is-size-7">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                </div>
+                <div class="field">
+                    <label for="description" class="label">Description:</label>
+                    <div class="control">
+                    <textarea class="textarea" name="description" id="description" cols="30" rows="5">{{ openmic.description }}</textarea>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.extra_tags == 'description' %}
+                        <p class="has-text-danger-dark is-size-7">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-outlined is-dark">EDIT OPEN MIC</button>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-outlined is-danger">DELETE</button>
+                    </div>
+                    <div class="control">
+                        <button type="reset" class="button is-link is-light">RESET FORM</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
