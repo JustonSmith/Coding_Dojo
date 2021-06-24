@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="LEARN Assignments/BankAccount/src"/>
+	<classpathentry kind="src" path="LEARN Assignments/Basics"/>
+	<classpathentry excluding="com/codingdojo/java_stack/phone/" kind="src" path="LEARN Assignments/Phone/src"/>
+	<classpathentry kind="src" path="LEARN Assignments/Phone/src/com/codingdojo/java_stack/phone"/>
+	<classpathentry kind="src" path="LEARN Assignments/zookeeper2/src"/>
+	<classpathentry kind="src" path="lectures/arrays"/>
+	<classpathentry kind="src" path="lectures/chipotleprices_ifelse"/>
+	<classpathentry kind="src" path="lectures/importing_radiusOfACircle"/>
+	<classpathentry kind="src" path="lectures/looping_practice_with_arrays"/>
+	<classpathentry kind="src" path="lectures/OOP_1"/>
+	<classpathentry kind="src" path="lectures/string_manipulation_demo"/>
+	<classpathentry kind="src" path="lectures/strings"/>
+	<classpathentry kind="src" path="lectures/WazzaaWorld"/>
+	<classpathentry kind="output" path="LEARN Assignments/BankAccount/bin"/>
+</classpath>
