@@ -1,0 +1,7 @@
+package com.codingdojo.relationships.models;
+
+
+
+public class Person {
+
+}
