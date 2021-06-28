@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.productsCategories.models.Category;
 import com.codingdojo.productsCategories.models.Product;
@@ -56,7 +57,10 @@ public class ProductsController {
 	}
 	
 	@PostMapping("addCategory/${productToShow.id}")
-	public String addUserToQuote(@PathVariable("id") Long productId) {
+	public String addUserToQuote(@PathVariable("id") Long productId, @RequestParam("selected_category") Long categoryId) {
+		System.out.println("ID of the product is: " + productId);
+		System.out.println("ID of the category is: " + categoryId);
+		this.appService.joinProductsToCategories(productId, categoryId);
 		return "redirect:/";
 	}
 	

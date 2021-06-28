@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.quotesDemo.models.Quote;
 import com.codingdojo.quotesDemo.models.User;
@@ -62,7 +63,10 @@ public class QuotesController {
 	}
 	
 	@PostMapping("/addUserToQuote/{id}")
-	public String addUserToQuote(@PathVariable("id") Long quoteId) {
+	public String addUserToQuote(@PathVariable("id") Long quoteId, @RequestParam("selected_user") Long userId) {
+		System.out.println("ID of the quote is this: " + quoteId);
+		System.out.println("ID of the user is this: " + userId);
+		this.appService.joinQuoteToUser(userId, quoteId);
 		return "redirect:/";
 	}
 	

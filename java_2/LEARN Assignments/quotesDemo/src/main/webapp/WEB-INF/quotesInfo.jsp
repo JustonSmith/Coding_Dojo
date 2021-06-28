@@ -14,7 +14,14 @@
     <p>Rating: ${quoteToShow.rating}</p>
 
     <h3>Users who like this quote:</h3>
-    <p>${quoteToShow.usersWhoLike}</p>
+
+    <ul>
+        <c:forEach items='${quoteToShow.usersWhoLike}' var='u'>
+            <li>
+            ${u.name}
+            </li>
+        </c:forEach>
+    </ul>
 
     <h5>${allUsers}</h5>
     <br>

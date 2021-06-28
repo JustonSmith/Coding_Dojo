@@ -16,6 +16,14 @@
     <h3>categories product belongs to:</h3>
     <p>${productToShow.categories}</p>
 
+    <ul>
+        <c:forEach items='${productToShow.categories}' var="c">
+            <li>
+                ${c.name}
+            </li>
+        </c:forEach>
+    </ul>
+
     <h5>${allCategories}</h5>
 
     <br>
@@ -23,7 +31,7 @@
     <form action="/addCategory/${productToShow.id}" method="POST ">
         <select name="selected_category" id="">
             <c:forEach items='${ allCategories }' var="c">
-                <option value="${u.id}">${c.name}</option>
+                <option value="${c.id}">${c.name}</option>
             </c:forEach>
         </select>
     </form>

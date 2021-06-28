@@ -39,8 +39,23 @@ public class AppService {
 		return this.quoteRepo.findById(id).orElse(null);	
 	}
 	
-//	get all USERS to populate dropdown list
+//	get all USERS to populate dropdown list.
+	
 	public List<User> findAllUsers() {
 		return (List<User>) this.userRepo.findAll();
+	}
+	
+	
+//	add user as a favorite to a quote. MANY TO MANY.
+	
+	public void joinQuoteToUser(Long userId, Long quoteId) {
+		User u = this.userRepo.findById(userId).orElse(null);
+		Quote q = this.quoteRepo.findById(quoteId).orElse(null);
+		
+//		update quote objects list of users who like it to add this user. MANY TO MANY.
+		q.getUsersWhoLike().add(u);
+		
+//		save the newly update quote object to the db.
+		this.quoteRepo.save(q);
 	}
 }

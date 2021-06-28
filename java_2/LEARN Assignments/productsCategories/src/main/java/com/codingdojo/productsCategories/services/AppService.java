@@ -41,4 +41,14 @@ public class AppService {
 	public List<Category> findAllCategories() {
 		return (List<Category>) this.catRepo.findAll();
 	}
+	
+//	Add products to categories. MANY TO MANY.
+	
+	public void joinProductsToCategories(Long productId, Long categoryId) {
+		Product p = this.prodRepo.findById(productId).orElse(null);
+		Category c = this.catRepo.findById(categoryId).orElse(null);
+		
+		c.getProducts().add(p);
+		this.prodRepo.save(p);
+	}
 }
