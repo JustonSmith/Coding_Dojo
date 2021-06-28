@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,6 +27,7 @@ public class Dojo {
 	
 	private Long id;
 	
+	@NotBlank(message="city may not be null")
 	@Size (min=2, max=20, message= "Dojo name must be between 2-20 characters long.")
 	private String name;
 	

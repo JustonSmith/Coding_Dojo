@@ -34,12 +34,20 @@ public class DojoController {
 	}
 	
 	@PostMapping("/dojos/create")
-	public String createNewDojo(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
+	public String createNewDojo(Model model, @Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
 		if(result.hasErrors()) {
+			List<Dojo> allDojos = this.appService.findAllDojos();
+			model.addAttribute("allDojos", allDojos);
 			return "index.jsp";
 		} else {
 			this.appService.createDojo(dojo);
 			return "redirect:/";
 		}
+	}
+	
+	@GetMapping("/ninjas/new")
+	public String newNinja() {
+		return "ninja.jsp";
+		
 	}
 }

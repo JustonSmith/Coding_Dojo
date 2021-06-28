@@ -31,13 +31,22 @@ public class TeamController {
 	}
 	
 	@PostMapping("/teams/create")
-	public String createNewTeam(@Valid @ModelAttribute("team") Team team, BindingResult result) {
+	public String createNewTeam(Model model, @Valid @ModelAttribute("team") Team team, BindingResult result) {
 		if(result.hasErrors()) {
+			List<Team> allTeams = this.appService.findAllTeams();
+			model.addAttribute("allTeams", allTeams);
 			return "index.jsp";
 		} else {
 			this.appService.createTeam(team);
 			return "redirect:/";
 		}
+		
+	}
+		
+	@GetMapping("/players/new")
+	public String newPlayer() {
+		return "player.jsp";
+			
 	}
 	
 }
