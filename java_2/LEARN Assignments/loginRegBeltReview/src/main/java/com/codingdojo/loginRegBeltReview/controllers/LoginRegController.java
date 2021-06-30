@@ -63,7 +63,7 @@ public class LoginRegController {
     		System.out.println("************");
     		System.out.println(session.getAttribute("user_id"));
     		System.out.println("************");
-    		if(session.getAttribute("user-id") == null) {
+    		if(session.getAttribute("user_id") == null) {
     			return "redirect:/";
     		}
     	

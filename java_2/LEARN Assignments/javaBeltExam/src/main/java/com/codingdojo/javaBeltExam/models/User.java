@@ -1,4 +1,4 @@
-package com.codingdojo.loginRegBeltReview.models;
+package com.codingdojo.javaBeltExam.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,15 +12,23 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
-public class UserRegistration {
-	
+public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="Username is required.")
-	@Size (min=3, max=30, message="Username must be between 3 and 30 characters.")
+	@NotEmpty(message="User name is required.")
+	@Size(message="please enter a valid email.")
 	private String userName;
+	
+	@NotEmpty(message="First name is required.")
+	@Size (min=3, max=30, message="Username must be between 3 and 30 characters.")
+	private String firstName;
+	
+	@NotEmpty(message="Last name is required.")
+	@Size (min=3, max=30, message="Username must be between 3 and 30 characters.")
+	private String lastName;
 	
 	@NotEmpty(message="Email is required.")
 	@Email(message="please enter a valid email.")
@@ -36,20 +44,18 @@ public class UserRegistration {
 	private String confirm;
 	
 	
-//	CONSTRUCTORS
-	
-	public UserRegistration() {
+	public User() {
 		
 	}
 	
-	public UserRegistration(String userName, String email, String password) {
+	public User(String userName, String firstName, String lastName, String email, String password) {
 		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 	}
 
-//	GETTERS AND SETTERS
-	
 	public Long getId() {
 		return id;
 	}
@@ -64,6 +70,22 @@ public class UserRegistration {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -89,6 +111,11 @@ public class UserRegistration {
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
