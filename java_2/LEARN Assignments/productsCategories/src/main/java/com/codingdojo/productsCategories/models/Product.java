@@ -40,7 +40,7 @@ public class Product {
 	
 	private float price;
 	
-//	many to many
+//	MANY TO MANY
 	
 	@ManyToMany (fetch = FetchType.LAZY)
 	@JoinTable(
