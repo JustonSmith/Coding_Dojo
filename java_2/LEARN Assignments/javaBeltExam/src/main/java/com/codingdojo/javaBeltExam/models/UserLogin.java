@@ -1,10 +1,17 @@
 package com.codingdojo.javaBeltExam.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class UserLogin {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	@NotEmpty(message="Email is required.")
 	@Email(message="Please enter a valid email.")

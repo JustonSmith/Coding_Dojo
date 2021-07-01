@@ -12,4 +12,5 @@ public interface UserRepository extends CrudRepository<UserRegistration, Long> {
 
 //	check 'keywords inside method names' table for more options.
 	Optional<UserRegistration> findByEmail(String email);
+	
 }

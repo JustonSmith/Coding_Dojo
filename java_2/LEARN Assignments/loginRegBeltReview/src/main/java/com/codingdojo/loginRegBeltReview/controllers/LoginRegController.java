@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.codingdojo.loginRegBeltReview.models.Menu;
 import com.codingdojo.loginRegBeltReview.models.UserLogin;
 import com.codingdojo.loginRegBeltReview.models.UserRegistration;
 import com.codingdojo.loginRegBeltReview.services.UserService;
@@ -85,5 +87,81 @@ public class LoginRegController {
     	return "redirect:/";
     	
     }
+    
+    @GetMapping("/menu/new")
+    public String newMenuItem(@ModelAttribute("menu")Menu menu) {
+    	return "newMenu.jsp";
+    }
+    
+    @PostMapping("/menu/create")
+    public String createMenuItem(@Valid @ModelAttribute("menu") Menu menu, BindingResult result, HttpSession session) {
+    	if(result.hasErrors()) {
+    		return "newMenu.jsp";
+    	}else {
+    		//get the logged in user using session so that we can assign the logged in user as the uploader of the menu item
+    		Long idOfLoggedinUser = (Long)session.getAttribute("user_id");
+    		UserRegistration loggedInUserObj = this.userServ.findOneUser(idOfLoggedinUser);
+    		
+    		//assign the menu's uploader to be the logged in user object
+    		menu.setUploader(loggedInUserObj);
+    		this.userServ.createMenuItem(menu);
+    		return "redirect:/home";
+    	}
+    }
+    
+    @GetMapping("/menu/{id}/info")
+    public String showMenuItem(@PathVariable("id") Long id, Model model) {
+    	
+    	//retrieve a menu object using this id variable
+    	Menu menuObj = this.userServ.findOneMenuItem(id);
+    	
+    	//pass the menuObj variable to the templates 
+    	model.addAttribute("menuObj", menuObj);
+    	return "oneItem.jsp";
+    }
+    
+    @GetMapping("/menu/{id}/edit")
+    public String editMenuItem(@PathVariable("id")Long id, Model model) {
+    	
+    	//retrieve a menu object using this id variable
+    	Menu menuObj = this.userServ.findOneMenuItem(id);
+    	//pass this menuObj to the edit page so the form can prepopulate with this menu objects information
+    	model.addAttribute("menuObj", menuObj);
+    	
+    	return "edit.jsp";
+    	
+    }
+    
+    @PostMapping("/menu/{id}/update")
+    public String updateMenuItem(@PathVariable("id")Long id, @Valid @ModelAttribute("menuObj") Menu menu, BindingResult result ) {
+    	if(result.hasErrors()) {
+    		return "edit.jsp";
+    	}else {
+    		//get the orignial menu object from the database using the id from the PathVariable
+    		Menu oGMenuObj = this.userServ.findOneMenuItem(id);
+//    		System.out.println("*********");
+//    		System.out.println("Original menu objects uploader is this: " + oGMenuObj.getUploader());
+//    		System.out.println(menu.getUploader());
+//    		System.out.println(menu.getDescription());
+//    		System.out.println("*********");
+    		
+    		//set the menu object that came from the form's uploader to be the original uploader from the original meenu object from the db
+    		menu.setUploader(oGMenuObj.getUploader());
+    		this.userServ.updateOneMenuItem(menu);
+    		
+    		return "redirect:/home";
+    	}
+    }
+    
+    
+    @GetMapping("/menu/{id}/delete")
+    public String deleteMenuItem(@PathVariable("id")Long id) {
+    	this.userServ.deleteOneMenuItem(id);
+    	return "redirect:/home";
+    }
+    
+    
+
+
 
 }

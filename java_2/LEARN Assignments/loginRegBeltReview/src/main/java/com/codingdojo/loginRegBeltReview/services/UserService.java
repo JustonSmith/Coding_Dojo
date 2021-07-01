@@ -1,5 +1,6 @@
 package com.codingdojo.loginRegBeltReview.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -7,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.codingdojo.loginRegBeltReview.models.Menu;
 import com.codingdojo.loginRegBeltReview.models.UserLogin;
 import com.codingdojo.loginRegBeltReview.models.UserRegistration;
+import com.codingdojo.loginRegBeltReview.repositories.MenuRepository;
 import com.codingdojo.loginRegBeltReview.repositories.UserRepository;
 
 @Service
@@ -16,6 +19,9 @@ public class UserService {
 
 	@Autowired
     private UserRepository userRepo;
+	
+	@Autowired
+	private MenuRepository menuRepo;
 	    
 //		REGISTRATION
 	
@@ -75,5 +81,33 @@ public class UserService {
 	    	return this.userRepo.findById(id).orElse(null);
 	    
 	    }
+	    
+	  ///METHODS FOR THE MENU OPERATIONS
+	    public List<Menu> findAllMenuItems(){
+	    		return (List<Menu>)this.menuRepo.findAll();
+	    }
+	    
+	    //create a menu item
+	    public Menu createMenuItem(Menu m) {
+	    		return this.menuRepo.save(m);
+	    }
+	    
+	    //find one menu item
+	    public Menu findOneMenuItem(Long id) {
+	    		return this.menuRepo.findById(id).orElse(null);
+	    }
+	    
+	    //update one menu item
+	    public Menu updateOneMenuItem(Menu m) {
+	    		return this.menuRepo.save(m);
+	    }
+	    
+	    //deleete one menu item
+	    public void deleteOneMenuItem(Long id) {
+	    		this.menuRepo.deleteById(id);
+	    }
+	    
+	    
+	
 }
 

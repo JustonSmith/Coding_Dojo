@@ -9,18 +9,19 @@ import org.springframework.validation.BindingResult;
 
 import com.codingdojo.javaBeltExam.models.User;
 import com.codingdojo.javaBeltExam.models.UserLogin;
-import com.codingdojo.javaBeltExam.repositories.ExamRepository;
+import com.codingdojo.javaBeltExam.repositories.IdeaRepository;
+import com.codingdojo.javaBeltExam.repositories.UserRepository;
 
 
 @Service
 public class UserService {
 
 	@Autowired
-	private ExamRepository examRepo;
+	private UserRepository userRepo;
 	
 	public User register(User newUser, BindingResult result) {
 		
-		if(examRepo.findByEmail(newUser.getEmail()).isPresent()) {
+		if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
 			result.rejectValue("email", "Unique", "This email is already in use.");
 		}
 		if(!newUser.getPassword().equals(newUser.getConfirm())) {
@@ -31,7 +32,7 @@ public class UserService {
         } else {
             String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
             newUser.setPassword(hashed);
-            return examRepo.save(newUser);
+            return userRepo.save(newUser);
         }
 	}
 	
@@ -39,7 +40,7 @@ public class UserService {
         if(result.hasErrors()) {
             return null;
         }
-        Optional<User> potentialUser = examRepo.findByEmail(newLogin.getEmail());
+        Optional<User> potentialUser = userRepo.findByEmail(newLogin.getEmail());
         if(!potentialUser.isPresent()) {
             result.rejectValue("email", "Unique", "Unknown email!");
             return null;
@@ -55,7 +56,9 @@ public class UserService {
         }
 	}
         public User findOneUser(Long id) {
-	    	return this.examRepo.findById(id).orElse(null);
+	    	return this.userRepo.findById(id).orElse(null);
 	    
 	    }
+        
+       
 }

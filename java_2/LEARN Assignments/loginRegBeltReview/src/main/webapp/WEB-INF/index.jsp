@@ -17,7 +17,7 @@
     <div class="container w-50 border border-dark border border rounded">
         <!-- REGISTRATION -->
         <h1 class="">Register Account:</h1>
-        <form:form action="/register" method="post" modelAttribute="newUser">
+        <form:form action="/register" method="post" modelAttribute="newUser" >
             <div class="form-group">
                 <label>User Name:</label>
                 <form:input path="userName" class="form-control" />
