@@ -27,8 +27,8 @@
         <div class="row">
             <div class="col-sm-6">
                 <h2 class="container title">Register</h2>
-                <section id="inner-wrapper" class="login">
-                    <article>
+                <!-- <section id="inner-wrapper" class="login">
+                    <article> -->
                         <p class="errors">
                             <form:errors path="user.*" />
                         </p>
@@ -68,8 +68,8 @@
 
             <div class="col-sm-6">
                 <h2 class="container title">Login</h2>
-                <section id="inner-wrapper" class="login">
-                    <article>
+                <!-- <section id="inner-wrapper" class="login">
+                    <article> -->
                         <p class="errors">
                             <c:out value="${error}" />
                         </p>
@@ -90,8 +90,8 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
-                    </article>
-                </section>
+                    <!-- </article>
+                </section> -->
             </div>
         </div>
     </div>

@@ -11,7 +11,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Ideas</title>
-    
+    <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -44,12 +45,12 @@
                                 <c:if test="${idea.creator.id != user.id }">
                                     <c:if test="${idea.likers.contains(user) == false }">
                                         <td>
-                                            <a href="/like/${idea.id }">Like</a> 
+                                            <a href="/like/${idea.id }">Like</a>
                                         </td>
                                     </c:if>
                                     <c:if test="${idea.likers.contains(user) == true }">
                                         <td>
-                                            <a href="/unlike/${idea.id }">Unlike</a> 
+                                            <a href="/unlike/${idea.id }">Unlike</a>
                                         </td>
                                     </c:if>
                                 </c:if>
@@ -63,5 +64,5 @@
     </div>
 
 </body>
-</html>
 
+</html>
