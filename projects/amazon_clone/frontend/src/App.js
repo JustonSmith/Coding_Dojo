@@ -6,11 +6,11 @@ function App() {
     <div className="grid-container">
         <header className="row">
             <div>
-                <a className="brand" href="index.html">pamazon</a>
+                <a className="brand" href="/">pamazon</a>
             </div>
             <div>
-                <a href="cart.html">Cart</a>
-                <a href="signin.html">Sign In</a>
+                <a href="/cart">Cart</a>
+                <a href="/signin">Sign In</a>
             </div>
         </header>
         <main>
@@ -18,7 +18,7 @@ function App() {
               {data.products.map((product) => (
                 <div key = {product._id} className="card">
                     <a href={`/product/${product._id}`}>
-                        <img className="medium" src={product.image} alt="product" />
+                        <img className="medium" src={product.image} alt={product.name} />
                     </a>
                     <div>
                         <a href="product.html">
