@@ -2,7 +2,7 @@ import React from 'react';
 import data from './data';
 
 function App() {
-  return (
+return (
     <div className="grid-container">
         <header className="row">
             <div>
@@ -15,7 +15,7 @@ function App() {
         </header>
         <main>
             <div className="row center">
-              {data.products.map((product) => (
+                {data.products.map((product) => (
                 <div key = {product._id} className="card">
                     <a href={`/product/${product._id}`}>
                         <img className="medium" src={product.image} alt={product.name} />
@@ -34,15 +34,15 @@ function App() {
                         <div className="price">${product.price}</div>
                     </div>
                 </div>
-              ))
-              }
+                ))
+                }
             </div>
         </main>
         <footer className="row center">
             All Rights Reserved
         </footer>
     </div>
-  );
+    );
 }
 
 export default App;
