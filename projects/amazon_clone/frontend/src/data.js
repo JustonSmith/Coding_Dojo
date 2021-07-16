@@ -70,7 +70,7 @@ const data = {
             brand: 'US Art Supply',
             rating:'2.0',
             numReviews: 3,
-            description: 'The new copy machine of your dreams.'
+            description: 'Youll never make it as an artist.'
         },
     ],
 };
