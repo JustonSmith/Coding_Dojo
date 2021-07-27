@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os
 import sys
-import signal
 import re
 from string import ascii_uppercase
 from time import time

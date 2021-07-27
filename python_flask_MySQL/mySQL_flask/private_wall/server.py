@@ -179,3 +179,19 @@ def add_message():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    count = 1
+    time_since={}
+    for i in message_check:
+            
+        message_datetime = i['created_at']
+        mysql = connectToMySQL('dojo_wall')
+        query = "select timediff(%(current_datetime)s, %(message_datetime)s) as '';"
+        data ={
+                'current_datetime':strftime('%Y-%m-%d %H:%M:%S', localtime()),
+                'message_datetime':message_datetime,
+            }
+        time_since['message_%s'%(count)] = mysql.query_db(query,data)
+        count += 1
+
+    print(time_since)
