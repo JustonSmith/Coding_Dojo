@@ -579,10 +579,10 @@ if __name__ == '__main__':
   # -h/--help is reserved by default and will display all available parameters.
   # '''
 
-argparser = argparse.ArgumentParser('Python Console Chessboard')
-argparser.add_argument('--user1', help = '1st username', default = 'User #1')
-argparser.add_argument('--user2', help = '2nd username', default = 'User #2')
-arguments = argparser.parse_args() 
+  argparser = argparse.ArgumentParser('Python Console Chessboard')
+  argparser.add_argument('--user1', help = '1st username', default = 'User #1')
+  argparser.add_argument('--user2', help = '2nd username', default = 'User #2')
+  arguments = argparser.parse_args() 
 
 # ''' Start the game '''
 
@@ -604,7 +604,7 @@ while True:
 
       # ''' If move is legal, show changed board '''
 
-    print (game)  
+  print (game)  
     else:
 
     # ''' Otherwise request a new move from the player '''
