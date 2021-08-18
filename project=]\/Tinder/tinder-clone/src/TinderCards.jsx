@@ -3,7 +3,7 @@ import TinderCard from "react-tinder-card"
 import "./TinderCards.css";
 
 function TinderCards() {
-// const [people, setPeople] = useState([
+const [people, setPeople] = useState([
     {
         name: "Elon Musk",
         url: " https://s.yimg.com/ny/api/res/1.2/WrPAlgL0M.Np4p7wRVl8.Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTU0MA--/https://s.yimg.com/uu/api/res/1.2/JLI.F0NwAcr8_5nN1Lh1jA--~B/aD0xMDgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/gobankingrates_644/c7819312b1bc81ac7c2d68bd1593e05e"
