@@ -3,13 +3,13 @@
 #
 #
 #
-### MORE PRACTICE ###
+### LIST ALGOS ###
 #
 #
 #
 # 
 # 
-# # SWAP FIRST AND LAST #
+# # SWAP FIRST AND LAST POSITION #
 
 # Given a list, write a python progran to swap the first and last element of that list.
 
@@ -114,7 +114,7 @@ new_list_5 = [12, 35, 9, 56, 24]
 #
 #
 #
-# given a list in Python and provided the positions of the elements, write a program to swap the two elements in the listpygame.examples.mask.main()
+# given a list in Python and provided the positions of the elements, write a program to swap the two elements in the list.
 
 # Input : List = [23, 65, 19, 90], pos1 = 1, pos2 = 3
 # Output : [19, 65, 23, 90]
@@ -164,6 +164,157 @@ print(swap_positions_2(List, pos1_2-1, pos2_2-1))
 
 
 # Approach 3: Store the element at pos1 and pos2 as a pair in a tuple variable, say GET. Unpack those elements with pos2 and pos1 positions in that list. Now, both the positions in that list are swapped. 
+
+
+def swap_positions_3(list_3, pos1_3, pos2_3) :
+
+    # Storing the two elements as a pair in a tuple variable "get".
+    get = list_3[pos1_3], list_3[pos2_3]
+
+    #unpacking those elements
+    list_3 = [pos2_3], list_3[pos1_3]
+
+    return list_3
+
+# Driver code
+
+List = [23, 65, 19, 90]
+
+pos1_3, pos2_3 = 1, 3
+
+print(swap_positions_3(List, pos1_3-1, pos2_3-1))
+#
+#
+#
+#
+#
+# ### FIND THE LENGTH OF A LIST ###
+#
+#
+#
+#
+#
+# List being an integral part of Python day-to-day programming has to be learned by all python users and have a knowledge of its utility and operations is essential and always a plus. 
+
+# APPROACH 1: Naive method.
+
+# In this method a loop is run and the counter increases until the last element of the list is counted. This is the most basic strategy that can possibly be employed in the absence of other preset techniques.
+
+# Initializing list
+test_list = [1, 4, 5, 7, 8]
+
+#printing test list
+print ("The list is : " + str(test_list))
+
+#Finding length using loop and counter.
+#Initializing counter
+
+counter = 0
+for i in test_list :
+    counter = counter + 1
+
+print ("Length of list using naive method os : " + str(counter))
+
+
+# Approach 2: using len().
+
+
+#The len() method offers the most used and easiest way to find the length of any list. This is the most conventional technique adopted by programmers.
+
+
+a = []
+a.append("Hello")
+a.append("Nerds.")
+a.append("Make")
+a.append("my")
+a.append("day.")
+
+print("The length of the list is : ", len(a))
+
+n = len([10, 20, 30])
+print("The length of the list is : ", n)
+# 
+# 
+# 
+# 
+# 
+# ### Maximum of two numbers ###
+#
+#
+#
+#
+#
+# Given two numbers, write a program to find the maximum of these two numbers.
+
+# Approach 1:
+
+def maximum_1(a, b) :
+
+    if a >= b:
+        return a
+    else:
+        return b
+
+# Driver code
+a = 2
+b = 4
+print(maximum_1(a, b))
+
+
+# Approach 2: Using the max() function.
+# This function is used to find the maximum of the valuse passed through its arguments.
+
+a = 2
+b = 4
+
+maximum_2 = max(a, b)
+print(maximum_2)
+
+# Approach 3: Using Ternary Operator.
+# This operator is also known as a conditional expression. These are operators that evaluate something based on a condition being true or false. It simply allows testing in a single line.
+
+# Driver code
+a = 2
+b = 4
+
+# Use of ternary operator
+print(a if a >= b else b)
+# 
+# 
+# 
+# 
+# 
+# ### MINIMUM OF TWO NUMBERS ###
+# 
+# 
+# 
+# 
+# 
+# Given two numbers, write a program to find the minimum of these two numbers.
+
+
+# Approach 1: This is the naive approach where we will compare numbers using if-else.
+
+def minimum_1(a,b) :
+    if a <= b :
+        return a
+    else :
+        return b
+
+# Driver code
+a = 2
+b = 4
+
+print(minimum_1(a, b))
+
+
+# Approach 2: Using the min() function.
+
+a = 2
+b = 4
+
+minimum_2 = min(a, b)
+print(minimum_2)
 
 
 
